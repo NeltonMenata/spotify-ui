@@ -455,7 +455,7 @@ export default function Home() {
                         <IconMicrophone2 className={`lg:w-6 w-5`} />
                         <IconVolume className={`lg:w-6 w-5 `}/>
                         <div className="lg:w-24 md:w-24 sm:w-20 w-0 invisible sm:visible pl-2">
-                            <Slider min={0} max={30} defaultValue={21}></Slider>
+                            <Slider min={0} max={30} size="small" defaultValue={21}></Slider>
 
                         </div>
 

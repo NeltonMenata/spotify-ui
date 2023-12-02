@@ -1,23 +1,17 @@
-import Contador from "@/components/Contador/Contador";
-import Head from "@/components/Head/Head";
 import Image from "next/image";
-import { ContadorContext } from "@/layers/data/context/context";
 import { IconBook, IconVolume, IconEaseOut, IconMenu2, IconMicrophone2, IconArrowsShuffle, IconPlayerPlayFilled, IconMaximize, IconPlaylist, IconPlaylistAdd, IconPlayerSkipBackFilled, IconPlayerSkipForwardFilled, IconRepeatOff, IconChevronLeft, IconUser, IconChevronRight, IconHeart, IconHome, IconPlus, IconSearch } from "@tabler/icons-react";
 import { useContext, useEffect, useState } from "react"
-import next from "next";
 import { Slider, TextField, Container, CircularProgress, Button } from "@mui/material"
-import { spawn } from "child_process";
-
 
 export default function Home() {
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
-    function changeVisibleMenu (){
-        setToggleMenu((value)=>!value)
+    function changeVisibleMenu() {
+        setToggleMenu((value) => !value)
     }
     return (
         <div className="flex flex-col text-zinc-200 h-screen bg-zinc-950 justify-between p-2 gap-2 rounded-lg overflow-auto">
-            <div className="flex flex-grow gap-2 overflow-auto">
+            <div className="flex flex-1 gap-2 overflow-auto">
                 <aside className=" md:w-48 lg:w-72 flex flex-col gap-2 rounded-lg w-0 px-0 h-full md:visible invisible">
                     <nav className="flex flex-col space-y-4 rounded-lg p-2 bg-zinc-900">
                         <a href="" className="flex items-center gap-2 text-lg font-semibold text-zinc-100">
@@ -109,41 +103,41 @@ export default function Home() {
                     </nav>
                 </aside>
                 <main className="flex-1 bg-gradient-to-t rounded-lg from-zinc-900 via-zinc-950 to-zinc-900 p-2 flex flex-col gap-4 h-full overflow-auto">
-                    {toggleMenu ? (<div className="flex flex-col bg-zinc-950 text-zinc-200 gap-2 p-2 w-[60%] absolute z-10 rounded-lg"> 
-                    <button onClick={changeVisibleMenu} className="bg-zinc-200 text-zinc-950 text-2xl font-black rounded-full m-2 py-1 px-3 self-end">X</button>
-                    <nav className="flex flex-col space-y-4 rounded-lg p-2 bg-zinc-900">
-                        <a href="" className="flex items-center gap-2 text-lg font-semibold text-zinc-100">
-                            <IconHome size={35}></IconHome>
-                            Home
-                        </a>
-                        <a href="" className="flex items-center gap-2 text-lg font-semibold text-zinc-100">
-                            <IconSearch size={35}></IconSearch>
-                            Search
-                        </a>
-                        <a href="" className="flex items-center gap-2 text-lg font-semibold text-zinc-100">
-                            <IconBook size={35}></IconBook>
-                            Library
-                        </a>
-                    </nav>
-                    <div className="flex flex-col space-y-3 bg-zinc-900 rounded-lg p-2">
-                        <div className="flex items-center space-x-2">
-                            <button className="rounded bg-zinc-500 p-1">
-                                <IconPlus></IconPlus>
+                    {toggleMenu ? (<div className="flex flex-col bg-zinc-950 text-zinc-200 gap-2 p-2 w-[60%] absolute z-10 rounded-lg">
+                        <button onClick={changeVisibleMenu} className="bg-zinc-200 text-zinc-950 text-2xl font-black rounded-full m-2 py-1 px-3 self-end">X</button>
+                        <nav className="flex flex-col space-y-4 rounded-lg p-2 bg-zinc-900">
+                            <a href="" className="flex items-center gap-2 text-lg font-semibold text-zinc-100">
+                                <IconHome size={35}></IconHome>
+                                Home
+                            </a>
+                            <a href="" className="flex items-center gap-2 text-lg font-semibold text-zinc-100">
+                                <IconSearch size={35}></IconSearch>
+                                Search
+                            </a>
+                            <a href="" className="flex items-center gap-2 text-lg font-semibold text-zinc-100">
+                                <IconBook size={35}></IconBook>
+                                Library
+                            </a>
+                        </nav>
+                        <div className="flex flex-col space-y-3 bg-zinc-900 rounded-lg p-2">
+                            <div className="flex items-center space-x-2">
+                                <button className="rounded bg-zinc-500 p-1">
+                                    <IconPlus></IconPlus>
 
-                            </button>
-                            <span className="text-lg font-semibold text-zinc-100">Create PlayList</span>
+                                </button>
+                                <span className="text-lg font-semibold text-zinc-100">Create PlayList</span>
+                            </div>
+
+                            <div className="flex items-center space-x-2">
+                                <button className="rounded bg-gradient-to-tr from-purple-500 to-zinc-500 p-1">
+                                    <IconHeart fill="white"></IconHeart>
+
+                                </button>
+                                <span className="text-lg font-semibold text-zinc-100">Liked Songs</span>
+                            </div>
+
                         </div>
-
-                        <div className="flex items-center space-x-2">
-                            <button className="rounded bg-gradient-to-tr from-purple-500 to-zinc-500 p-1">
-                                <IconHeart fill="white"></IconHeart>
-
-                            </button>
-                            <span className="text-lg font-semibold text-zinc-100">Liked Songs</span>
-                        </div>
-
-                    </div>
-                    </div>):(<></>)}
+                    </div>) : (<></>)}
                     <div className="md:invisible visible">
                         <IconMenu2 onClick={changeVisibleMenu}></IconMenu2>
 
@@ -335,9 +329,9 @@ export default function Home() {
                             </span>
                         </div>
                         <div className="p-2 relative bg-zinc-800 flex flex-col justify-between rounded-md min-w-[180px] max-w-2xl h-64">
-                        <div className="w-full h-full"/>
+                            <div className="w-full h-full" />
                             <div className="absolute h-[70%] w-[92%] p-2 ">
-                            <Image src={`/preto-show-poporo.jfif`} className="rounded-md" alt="Preto Show - Poporo" fill></Image>
+                                <Image src={`/preto-show-poporo.jfif`} className="rounded-md" alt="Preto Show - Poporo" fill></Image>
                             </div>
                             <span className="text-lg font-bold">
                                 Preto Show - Poporó
@@ -345,82 +339,95 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2 text-lg visible md:invisible md:h-0 md:gap-0 md:text-sm">
-                    <span className="text-3xl font-semibold">
-                        Minha PlayList Liked
-                    </span>
+                        <span className="text-3xl font-semibold">
+                            Minha PlayList Liked
+                        </span>
                         <nav className=" bg-zinc-950 gap-1 flex flex-col p-2 rounded-lg flex-grow overflow-auto">
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Anselmo Ralph
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Dji Tafinha
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            C4 Pedro
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Ary
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Nerú Americano
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Scró que Cuia
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Paulelson
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            TRX
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            CBG
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Mobbers
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Lebasi
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            T-Rex
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Prodigio
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            NGA
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Plutonio
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Deezy
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Monsta
-                        </a>
-                        <a href="" className="text-zinc-400 hover:text-zinc-200">
-                            Força Suprema
-                        </a>
-                    </nav>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Anselmo Ralph
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Dji Tafinha
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                C4 Pedro
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Ary
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Nerú Americano
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Scró que Cuia
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Paulelson
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                TRX
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                CBG
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Mobbers
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Lebasi
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                T-Rex
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Prodigio
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                NGA
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Plutonio
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Deezy
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Monsta
+                            </a>
+                            <a href="" className="text-zinc-400 hover:text-zinc-200">
+                                Força Suprema
+                            </a>
+                        </nav>
                     </div>
-                    
+
                 </main>
             </div>
-            <footer className="bg-zinc-800 w-[100%] rounded-lg overflow-hidden h-52 md:h-40 lg:h-46">
-                <div className="flex items-center justify-between w-full h-full m-1 px-0 md:px-2 sm:px-1 lg:px-2 py-1 ">
-                    <div className="flex gap-0 lg:gap-2 md:gap-2 sm:gap-1 items-center h-12 w-40 sm:h-16 sm:w-44 md:h-20 md:w-52 lg:h-24 lg:w-56">
-                    
-                        <div className="h-full w-[70%] relative justify-start">
-                        
-                            <Image src={`/pop-smoke-dior.jpg`} className="rounded-md absolute " objectFit="contain" alt="Pop Smoke - Dior" fill></Image>
-                            
-                        </div>
-                        <span className="font-bold w-24 h-max justify-self-start md:text-lg sm:text-xs text-xs lg:text-lg">Pop Smoke - Dior</span>
+            <footer className={`bg-zinc-800 w-[100%] 
+            rounded-lg 
+            overflow-hidden 
+            h-20 md:h-24 
+            lg:h-32 
+            flex items-center 
+            justify-between 
+            m-1 px-1 md:px-2 
+            sm:px-1 lg:px-2 py-1`}>
+                
+                    <div className="relative grid grid-cols-2 gap-1 lg:gap-2 md:gap-2 sm:gap-1 justify-end h-12 w-20 sm:h-16 sm:w-44 md:h-20 md:w-52 lg:h-24 lg:w-56">
+
+
+<div className="w-full h-full relative rounded-md  overflow-hidden">
+<Image src={`/pop-smoke-dior.jpg`} objectFit="cover" fill alt="Pop Smoke - Dior"></Image>
+
+</div>
+    
+
+
+                        <div className="font-bold w-full h-full md:text-lg sm:text-xs text-xs lg:text-lg flex flex-col justify-center"><span>
+                        Pop Smoke - Dior
+                            </span></div>
                     </div>
-                    <div className="flex flex-col items-center gap-0">
-                        <div className=" flex gap-2 sm:gap-2 md:gap-3 lg:gap-4 items-center">
+                    <div className="grid grid-cols-1 justify-center items-center sm:w-max ">
+                        <div className=" flex gap-2 sm:gap-2 md:gap-3 lg:gap-4 items-center justify-center">
                             <div><IconArrowsShuffle color="green" className={`lg:w-6 w-5`} ></IconArrowsShuffle></div>
 
                             <div>
@@ -432,36 +439,29 @@ export default function Home() {
                             <div>
                                 <IconPlayerSkipForwardFilled className={`lg:w-6 w-5 `}></IconPlayerSkipForwardFilled>
                             </div>
-
-
                             <div><IconRepeatOff className={`lg:w-6 w-5 `}></IconRepeatOff></div>
-
-
                         </div>
 
-                        <div className="flex gap-2 items-center">
-                            <span>1:29</span>
-                            <div className="lg:w-[30rem] md:w-[20rem] sm:w-[15rem] w-[7rem]">
-                                
+                        <div className="flex gap-2 items-center justify-center w-full">
+                            <span className="text-sm">1:29</span>
+                            <div className="lg:w-[30rem] md:w-[15rem] sm:w-[10rem] w-[5rem]">
+
                                 <Slider className="sm:h-[2px] md:h-1 lg:h-1" size="small" min={0} max={100} defaultValue={40}></Slider>
                             </div>
-
-
-
-                            <span>3:16</span>
+                            <span className="text-sm">3:16</span>
                         </div>
                     </div>
-                    <div className="flex gap-1 sm:gap-2 md:gap-3 lg:gap-4 items-center mr-1">
+                    <div className="flex self-center gap-1 w-16 sm:w-max sm:gap-2 md:gap-3 lg:gap-4 items-center mr-1">
                         <IconMicrophone2 className={`lg:w-6 w-5`} />
-                        <IconVolume className={`lg:w-6 w-5 `}/>
+                        <IconVolume className={`lg:w-6 w-5 `} />
                         <div className="lg:w-24 md:w-24 sm:w-20 w-0 invisible sm:visible pl-2">
                             <Slider min={0} max={30} size="small" defaultValue={21}></Slider>
 
                         </div>
 
-                        <IconMaximize className={`lg:w-6 w-5`}/>
+                        <IconMaximize className={`lg:w-6 w-5`} />
                     </div>
-                </div>
+                
             </footer>
         </div>
 

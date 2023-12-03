@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IconBook, IconVolume, IconEaseOut, IconMenu2, IconMicrophone2, IconArrowsShuffle, IconPlayerPlayFilled, IconMaximize, IconPlaylist, IconPlaylistAdd, IconPlayerSkipBackFilled, IconPlayerSkipForwardFilled, IconRepeatOff, IconChevronLeft, IconUser, IconChevronRight, IconHeart, IconHome, IconPlus, IconSearch } from "@tabler/icons-react";
 import { useContext, useEffect, useState } from "react"
 import { Slider, TextField, Container, CircularProgress, Button } from "@mui/material"
+import { grey } from "@mui/material/colors";
 
 export default function Home() {
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
@@ -10,7 +11,7 @@ export default function Home() {
         setToggleMenu((value) => !value)
     }
     return (
-        <div className="flex flex-col text-zinc-200 h-screen bg-zinc-950 justify-between p-2 gap-2 rounded-lg overflow-auto">
+        <div className="flex flex-col text-zinc-200 h-screen bg-zinc-950 justify-between p-2 gap-2 rounded-lg overflow-auto pb-4">
             <div className="flex flex-1 gap-2 overflow-auto">
                 <aside className=" md:w-48 lg:w-72 flex flex-col gap-2 rounded-lg w-0 px-0 h-full md:visible invisible">
                     <nav className="flex flex-col space-y-4 rounded-lg p-2 bg-zinc-900">
@@ -409,59 +410,61 @@ export default function Home() {
             lg:h-32 
             flex items-center 
             justify-between 
-            m-1 px-1 md:px-2 
+            m-1 px-1 md:px-2
+            pt-3
+            sm:gap-3 
             sm:px-1 lg:px-2 py-1`}>
-                
-                    <div className="relative grid grid-cols-2 gap-1 lg:gap-2 md:gap-2 sm:gap-1 justify-end h-12 w-20 sm:h-16 sm:w-44 md:h-20 md:w-52 lg:h-24 lg:w-56">
+
+                <div className="relative grid grid-cols-2 gap-1 lg:gap-2 md:gap-2 sm:gap-1 justify-end h-12 w-20 sm:h-16 sm:w-44 md:h-20 md:w-52 lg:h-24 lg:w-56">
 
 
-<div className="w-full h-full relative rounded-md  overflow-hidden">
-<Image src={`/pop-smoke-dior.jpg`} objectFit="cover" fill alt="Pop Smoke - Dior"></Image>
+                    <div className="w-full h-full relative rounded-md  overflow-hidden">
+                        <Image src={`/pop-smoke-dior.jpg`} objectFit="cover" fill alt="Pop Smoke - Dior"></Image>
 
-</div>
-    
+                    </div>
 
 
-                        <div className="font-bold w-full h-full md:text-lg sm:text-xs text-xs lg:text-lg flex flex-col justify-center"><span>
+
+                    <div className="font-bold w-full h-full md:text-lg sm:text-xs text-xs lg:text-lg flex flex-col justify-center"><span>
                         Pop Smoke - Dior
-                            </span></div>
-                    </div>
-                    <div className="grid grid-cols-1 justify-center items-center sm:w-max ">
-                        <div className=" flex gap-2 sm:gap-2 md:gap-3 lg:gap-4 items-center justify-center">
-                            <div><IconArrowsShuffle color="green" className={`lg:w-6 w-5`} ></IconArrowsShuffle></div>
+                    </span></div>
+                </div>
+                <div className="grid grid-cols-1 justify-center items-center sm:w-max ">
+                    <div className=" flex gap-4 md:gap-3 lg:gap-4 items-center justify-center">
+                        <div><IconArrowsShuffle  className={`lg:w-6 w-5 text-green-600`} ></IconArrowsShuffle></div>
 
-                            <div>
-                                <IconPlayerSkipBackFilled className={`lg:w-6 w-5`}></IconPlayerSkipBackFilled>
-                            </div>
-                            <div className="p-0 sm:p-1 lg:p-2 md:p-2 rounded-full bg-zinc-200">
-                                <IconPlayerPlayFilled className="text-gray-950 lg:w-6 md:w-5 w-4"></IconPlayerPlayFilled>
-                            </div>
-                            <div>
-                                <IconPlayerSkipForwardFilled className={`lg:w-6 w-5 `}></IconPlayerSkipForwardFilled>
-                            </div>
-                            <div><IconRepeatOff className={`lg:w-6 w-5 `}></IconRepeatOff></div>
+                        <div>
+                            <IconPlayerSkipBackFilled className={`lg:w-6 w-5`}></IconPlayerSkipBackFilled>
                         </div>
-
-                        <div className="flex gap-2 items-center justify-center w-full">
-                            <span className="text-sm">1:29</span>
-                            <div className="lg:w-[30rem] md:w-[15rem] sm:w-[10rem] w-[5rem]">
-
-                                <Slider className="sm:h-[2px] md:h-1 lg:h-1" size="small" min={0} max={100} defaultValue={40}></Slider>
-                            </div>
-                            <span className="text-sm">3:16</span>
+                        <div className="py-1 px-2 sm:px-2 lg:p-2 md:px-2 md:py-1.5 rounded-full bg-zinc-200">
+                            <IconPlayerPlayFilled className="text-zinc-950 lg:w-6 md:w-5 w-4"></IconPlayerPlayFilled>
                         </div>
-                    </div>
-                    <div className="flex self-center gap-1 w-16 sm:w-max sm:gap-2 md:gap-3 lg:gap-4 items-center mr-1">
-                        <IconMicrophone2 className={`lg:w-6 w-5`} />
-                        <IconVolume className={`lg:w-6 w-5 `} />
-                        <div className="lg:w-24 md:w-24 sm:w-20 w-0 invisible sm:visible pl-2">
-                            <Slider min={0} max={30} size="small" defaultValue={21}></Slider>
-
+                        <div>
+                            <IconPlayerSkipForwardFilled className={`lg:w-6 w-5 `}></IconPlayerSkipForwardFilled>
                         </div>
-
-                        <IconMaximize className={`lg:w-6 w-5`} />
+                        <div><IconRepeatOff className={`lg:w-6 w-5 `}></IconRepeatOff></div>
                     </div>
-                
+
+                    <div className="flex gap-2 items-center justify-center w-full">
+                        <span className="text-xs sm:text-sm md:text-md">1:29</span>
+                        <div className="lg:w-[30rem] md:w-[15rem] sm:w-[10rem] w-[8rem]">
+
+                            <Slider className="sm:h-[2px] md:h-1 lg:h-1" style={{color: grey[300]}} size="small" min={0} max={100} defaultValue={40}></Slider>
+                        </div>
+                        <span className="text-sm">3:16</span>
+                    </div>
+                </div>
+                <div className="flex self-center gap-2 w-16 sm:w-max sm:gap-2 md:gap-3 lg:gap-4 items-center mr-1">
+                    <IconMicrophone2 className={`lg:w-6 w-5`} />
+                    <IconVolume className={`lg:w-6 w-5 `} />
+                    <div className="lg:w-24 md:w-24 sm:w-20 absolute invisible sm:relative sm:visible pl-2">
+                        <Slider min={0} max={30} size="small" defaultValue={21}></Slider>
+
+                    </div>
+
+                    <IconMaximize className={`lg:w-6 w-5`} />
+                </div>
+
             </footer>
         </div>
 
